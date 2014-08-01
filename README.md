@@ -13,6 +13,15 @@ An extensible command line interface for [bpmn-js](https://github.com/bpmn-io/bp
 * Model BPMN 2.0 diagrams in the browser, without a mouse
 * Full undo and redo functionality
 * Extensible through your own commands
+* Numerous built-in commands:
+
+   * `append sourceId type [deltaPos]`
+   * `move shapeId delta [newParentId]`
+   * `undo`
+   * `redo`
+   * `shape shapeId`
+   * `shapes`
+   * `save svg|bpmn`
 
 
 ## Quickstart
@@ -27,6 +36,12 @@ Get the list of shapes:
 
 ```
 cli.shapes();
+```
+
+Export SVG or BPMN 2.0 xml
+
+```
+cli.save('svg' || 'bpmn');
 ```
 
 
