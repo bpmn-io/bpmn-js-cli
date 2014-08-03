@@ -37,15 +37,15 @@ describe('cli', function() {
 
   it('should model, cli based', inject(function(cli) {
 
-    // shapes
-    var shapes = cli.shapes('shapes');
+    // elements
+    var elements = cli.elements();
 
     // then
-    expect(shapes).toDeepEqual([ 'StartEvent_1', 'StartEvent_1_label' ]);
+    expect(elements).toDeepEqual([ 'StartEvent_1', 'StartEvent_1_label' ]);
 
 
-    // shape
-    var startEventElement = cli.shape('StartEvent_1');
+    // element
+    var startEventElement = cli.element('StartEvent_1');
 
     // then
     expect(startEventElement.id).toBe('StartEvent_1');
@@ -53,7 +53,7 @@ describe('cli', function() {
 
     // move
     var startEventPos = _.pick(startEventElement, [ 'x', 'y' ]);
-    cli.move('StartEvent_1 0,50');
+    cli.move('StartEvent_1', '0,50');
 
     // then
     expect(startEventElement.x).toBe(startEventPos.x);
@@ -61,17 +61,35 @@ describe('cli', function() {
 
 
     // append
-    var task = cli.append('StartEvent_1 bpmn:ServiceTask');
+    var task = cli.append('StartEvent_1', 'bpmn:ServiceTask');
 
     // then
     expect(task).toBeDefined();
 
 
     // append another
-    var otherTask = cli.append(task.id + ' bpmn:UserTask 150,0');
+    var otherTask = cli.append(task, 'bpmn:UserTask 150,0');
 
     // then
     expect(otherTask).toBeDefined();
+
+
+    // continue modeling
+
+    // append gateway
+    var gateway = cli.append(otherTask, 'bpmn:ExclusiveGateway');
+
+    // append manual task
+    var manualTask = cli.append(gateway, 'bpmn:ManualTask', { x: 150, y: -70 });
+
+    // append intermediate catch event
+    var intermediateCatchEvent = cli.append(gateway, 'bpmn:IntermediateCatchEvent', { x: 150, y: 70 });
+
+    // append joining gateway
+    var joiningGateway = cli.append(manualTask, 'bpmn:ExclusiveGateway', '150,70');
+
+    // connect event -> gateway
+    var connection = cli.connect(intermediateCatchEvent, joiningGateway, 'bpmn:SequenceFlow');
 
 
     // export as svg
