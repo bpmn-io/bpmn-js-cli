@@ -99,6 +99,21 @@ describe('cli', function() {
     var catchEventJoiningGatewayConnection = cli.connect(intermediateCatchEvent, joiningGateway, 'bpmn:SequenceFlow');
 
 
+    // create text-annotation next to orGateway
+    var orGatewayShape = cli.element(orGateway);
+
+
+    var textAnnotation = cli.create('bpmn:TextAnnotation', {
+      x: orGatewayShape.x + 100,
+      y: orGatewayShape.y - 100
+    }, orGatewayShape.parent);
+
+    cli.setLabel(textAnnotation, 'What-do-you-choose,-yes-or-no?');
+
+
+    // create association
+    // var association = cli.connect(orGateway, textAnnotation, 'bpmn:Association');
+
     // var
     // export as svg
     cli.save('svg');
