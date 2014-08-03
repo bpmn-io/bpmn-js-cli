@@ -53,31 +53,38 @@ describe('cli', function() {
 
     // move
     var startEventPos = _.pick(startEventElement, [ 'x', 'y' ]);
-    cli.move('StartEvent_1', '0,50');
+    cli.move('StartEvent_1', '0,100 0');
 
     // then
     expect(startEventElement.x).toBe(startEventPos.x);
-    expect(startEventElement.y).toBe(startEventPos.y + 50);
+    expect(startEventElement.y).toBe(startEventPos.y + 100);
 
 
     // append
-    var task = cli.append('StartEvent_1', 'bpmn:ServiceTask');
+    var orGateway = cli.append('StartEvent_1', 'bpmn:InclusiveGateway', { x: 150, y: 0});
 
     // then
-    expect(task).toBeDefined();
+    expect(orGateway).toBeDefined();
 
 
-    // append another
-    var otherTask = cli.append(task, 'bpmn:UserTask 150,0');
+    // set label
+    cli.setLabel(orGateway, 'You-have-to-decide');
 
     // then
-    expect(otherTask).toBeDefined();
+    expect(cli.element(orGateway).businessObject.name).toBe('You-have-to-decide');
+
+
+    // append user task
+    var userTask = cli.append(orGateway, 'bpmn:UserTask 150,0');
+
+    // then
+    expect(userTask).toBeDefined();
 
 
     // continue modeling
 
     // append gateway
-    var gateway = cli.append(otherTask, 'bpmn:ExclusiveGateway');
+    var gateway = cli.append(userTask, 'bpmn:ExclusiveGateway');
 
     // append manual task
     var manualTask = cli.append(gateway, 'bpmn:ManualTask', { x: 150, y: -70 });
@@ -89,9 +96,10 @@ describe('cli', function() {
     var joiningGateway = cli.append(manualTask, 'bpmn:ExclusiveGateway', '150,70');
 
     // connect event -> gateway
-    var connection = cli.connect(intermediateCatchEvent, joiningGateway, 'bpmn:SequenceFlow');
+    var catchEventJoiningGatewayConnection = cli.connect(intermediateCatchEvent, joiningGateway, 'bpmn:SequenceFlow');
 
 
+    // var
     // export as svg
     cli.save('svg');
 
