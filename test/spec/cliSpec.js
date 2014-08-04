@@ -68,10 +68,10 @@ describe('cli', function() {
 
 
     // set label
-    cli.setLabel(orGateway, 'You-have-to-decide');
+    cli.setLabel(orGateway, 'You have to decide');
 
     // then
-    expect(cli.element(orGateway).businessObject.name).toBe('You-have-to-decide');
+    expect(cli.element(orGateway).businessObject.name).toBe('You have to decide');
 
 
     // append user task
@@ -108,7 +108,7 @@ describe('cli', function() {
       y: orGatewayShape.y - 100
     }, orGatewayShape.parent);
 
-    cli.setLabel(textAnnotation, 'What-do-you-choose,-yes-or-no?');
+    cli.setLabel(textAnnotation, 'What do you choose, yes or no?');
 
 
     // create association
