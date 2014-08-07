@@ -3,7 +3,7 @@
 var TestHelper = require('bpmn-js/test/TestHelper'),
     Matchers = require('bpmn-js/test/Matchers');
 
-/* global bootstrapBpmnJS, inject */
+/* global bootstrapModeler, inject */
 
 
 var _ = require('lodash');
@@ -24,7 +24,7 @@ describe('cli', function() {
 
   var testModules = [ drawModule, cliModule, modelingModule ];
 
-  beforeEach(bootstrapBpmnJS(diagramXML, {
+  beforeEach(bootstrapModeler(diagramXML, {
     modules: testModules,
     cli: { bindTo: 'cli' }
   }));
