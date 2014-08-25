@@ -1,6 +1,6 @@
 'use strict';
 
-var TestHelper = require('bpmn-js/test/TestHelper'),
+var TestHelper = require('../test-helper'),
     Matchers = require('bpmn-js/test/Matchers');
 
 /* global bootstrapModeler, inject */
