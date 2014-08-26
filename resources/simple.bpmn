@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions
+  xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+  xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC"
+  xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+  xmlns:signavio="http://www.signavio.com"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  expressionLanguage="http://www.w3.org/1999/XPath"
+  targetNamespace="http://www.signavio.com/bpmn20"
+  typeLanguage="http://www.w3.org/2001/XMLSchema"
+  xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+   <process id="sid-0cf32f62-0388-4520-a96c-7d080a9042e7" isClosed="false" isExecutable="false" processType="None">
+      <task completionQuantity="1" id="ID_TASK_1" isForCompensation="false" name="Shape 1" startQuantity="1">
+         <outgoing>ID_CONNECTION_1</outgoing>
+      </task>
+      <task completionQuantity="1" id="ID_TASK_2" isForCompensation="false" name="Shape 2" startQuantity="1">
+         <incoming>ID_CONNECTION_1</incoming>
+      </task>
+      <sequenceFlow id="ID_CONNECTION_1" sourceRef="ID_TASK_1" targetRef="ID_TASK_2" />
+   </process>
+   <bpmndi:BPMNDiagram id="sid-95c59105-82b4-4562-8f5e-8baa20ae9045">
+      <bpmndi:BPMNPlane bpmnElement="sid-0cf32f62-0388-4520-a96c-7d080a9042e7" id="sid-8e90d3db-da16-4d9c-9568-7255dcb765b9">
+         <bpmndi:BPMNShape bpmnElement="ID_TASK_1" id="ID_TASK_1_gui">
+            <omgdc:Bounds height="80.0" width="100.0" x="105.0" y="150.0"/>
+            <bpmndi:BPMNLabel labelStyle="sid-cfbbe681-774f-4ee8-b703-8740cb5cf812">
+               <omgdc:Bounds height="12.0" width="49.71428680419922" x="130.1428565979004" y="182.0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="ID_TASK_2" id="ID_TASK_2_gui">
+            <omgdc:Bounds height="80.0" width="100.0" x="360.0" y="150.0"/>
+            <bpmndi:BPMNLabel labelStyle="sid-cfbbe681-774f-4ee8-b703-8740cb5cf812">
+               <omgdc:Bounds height="12.0" width="49.71428680419922" x="385.1428565979004" y="182.0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNEdge bpmnElement="ID_CONNECTION_1" id="ID_CONNECTION_1_gui">
+            <omgdi:waypoint x="205.0" y="190.0"/>
+            <omgdi:waypoint x="360.0" y="190.0"/>
+         </bpmndi:BPMNEdge>
+      </bpmndi:BPMNPlane>
+   </bpmndi:BPMNDiagram>
+</definitions>

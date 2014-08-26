@@ -51,6 +51,8 @@ cli.save('bpmn');
    * `redo`
    * `save svg|bpmn`
    * `setLabel element label`
+   * `removeShape  shape|elementId`
+   * `removeConnection  connection|connectionId`
 
 
 ## Quickstart
