@@ -138,6 +138,7 @@ describe('cli', function() {
     }));
   });
 
+
   describe('remove', function() {
 
     // given that
@@ -155,7 +156,7 @@ describe('cli', function() {
 
       // then
       var elements = cli.elements();
-      expect(elements).toDeepEqual([ 'ID_TASK_2', 'ID_CONNECTION_1_label' ]);
+      expect(elements).toDeepEqual([ 'ID_TASK_2' ]);
     }));
 
 
@@ -166,7 +167,7 @@ describe('cli', function() {
 
       // then
       var elements = cli.elements();
-      expect(elements).toDeepEqual([ 'ID_TASK_1', 'ID_TASK_2', 'ID_CONNECTION_1_label' ]);
+      expect(elements).toDeepEqual([ 'ID_TASK_1', 'ID_TASK_2' ]);
     }));
   });
 
