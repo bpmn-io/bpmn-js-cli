@@ -11,7 +11,7 @@ var _ = require('lodash');
 var fs = require('fs');
 
 var modelingModule = require('bpmn-js/lib/features/modeling'),
-    drawModule = require('bpmn-js/lib/draw'),
+    coreModule = require('bpmn-js/lib/core'),
     cliModule = require('../../');
 
 
@@ -23,7 +23,7 @@ describe('cli', function() {
   var startDiagramXML = fs.readFileSync('resources/start.bpmn', 'utf-8');
   var simpleDiagramXML = fs.readFileSync('resources/simple.bpmn', 'utf-8');
 
-  var testModules = [ drawModule, cliModule, modelingModule ];
+  var testModules = [ coreModule, cliModule, modelingModule ];
 
 
   describe('bootstrap', function() {
@@ -169,6 +169,7 @@ describe('cli', function() {
       var elements = cli.elements();
       expect(elements).toDeepEqual([ 'ID_TASK_1', 'ID_TASK_2' ]);
     }));
+
   });
 
 });
