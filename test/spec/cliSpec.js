@@ -20,8 +20,8 @@ describe('cli', function() {
   beforeEach(Matchers.addDeepEquals);
 
 
-  var startDiagramXML = fs.readFileSync('resources/start.bpmn', 'utf-8');
-  var simpleDiagramXML = fs.readFileSync('resources/simple.bpmn', 'utf-8');
+  var startDiagramXML = fs.readFileSync('resources/start.bpmn', 'utf8');
+  var simpleDiagramXML = fs.readFileSync('resources/simple.bpmn', 'utf8');
 
   var testModules = [ coreModule, cliModule, modelingModule ];
 
