@@ -54,7 +54,7 @@ describe('cli', function() {
       var elements = cli.elements();
 
       // then
-      expect(elements).toDeepEqual([ 'StartEvent_1', 'StartEvent_1_label' ]);
+      expect(elements).toDeepEqual([ 'Process_1', 'StartEvent_1', 'StartEvent_1_label' ]);
 
 
       // element
@@ -66,7 +66,7 @@ describe('cli', function() {
 
       // move
       var startEventPos = _.pick(startEventElement, [ 'x', 'y' ]);
-      cli.move('StartEvent_1', '0,100 0');
+      cli.move('StartEvent_1', '0,100');
 
       // then
       expect(startEventElement.x).toBe(startEventPos.x);
@@ -125,7 +125,11 @@ describe('cli', function() {
 
 
       // create association
-      // var association = cli.connect(orGateway, textAnnotation, 'bpmn:Association');
+      var association = cli.connect(orGateway, textAnnotation, 'bpmn:Association');
+
+
+      // move some nodes
+      cli.move([ joiningGateway, orGateway, intermediateCatchEvent ], '0,30');
 
       // var
       // export as svg
@@ -142,7 +146,7 @@ describe('cli', function() {
   describe('remove', function() {
 
     // given that
-    // expect(cli.elements()).toDeepEqual([ 'ID_TASK_1', 'ID_TASK_2', 'ID_CONNECTION_1', 'ID_CONNECTION_2_label' ]);
+    // expect(cli.elements()).toDeepEqual([ 'ID_PROCESS_1', 'ID_TASK_1', 'ID_TASK_2', 'ID_CONNECTION_1', 'ID_CONNECTION_2_label' ]);
     beforeEach(bootstrapModeler(simpleDiagramXML, {
       modules: testModules,
       cli: { bindTo: 'cli' }
@@ -156,7 +160,7 @@ describe('cli', function() {
 
       // then
       var elements = cli.elements();
-      expect(elements).toDeepEqual([ 'ID_TASK_2' ]);
+      expect(elements).toDeepEqual([ 'ID_PROCESS_1', 'ID_TASK_2' ]);
     }));
 
 
@@ -167,7 +171,7 @@ describe('cli', function() {
 
       // then
       var elements = cli.elements();
-      expect(elements).toDeepEqual([ 'ID_TASK_1', 'ID_TASK_2' ]);
+      expect(elements).toDeepEqual([ 'ID_PROCESS_1', 'ID_TASK_1', 'ID_TASK_2' ]);
     }));
 
   });
