@@ -36,7 +36,7 @@
     "time-grunt": "^0.3.0"
   },
   "dependencies": {
-    "lodash": "^2.4.0"
+    "lodash": "^3.0.0"
   },
   "browser": {
     "fs": false

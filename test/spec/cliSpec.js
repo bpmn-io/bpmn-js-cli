@@ -6,7 +6,7 @@ var TestHelper = require('../test-helper'),
 /* global bootstrapModeler, inject */
 
 
-var _ = require('lodash');
+var pick = require('lodash/object/pick');
 
 var fs = require('fs');
 
@@ -65,7 +65,7 @@ describe('cli', function() {
 
 
       // move
-      var startEventPos = _.pick(startEventElement, [ 'x', 'y' ]);
+      var startEventPos = pick(startEventElement, [ 'x', 'y' ]);
       cli.move('StartEvent_1', '0,100');
 
       // then
