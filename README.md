@@ -1,5 +1,7 @@
 # bpmn-js-cli
 
+[![Build Status](https://travis-ci.org/bpmn-io/bpmn-js-cli.svg?branch=master)](https://travis-ci.org/bpmn-io/bpmn-js-cli)
+
 An extensible command line interface for [bpmn-js](https://github.com/bpmn-io/bpmn-js).
 
 
