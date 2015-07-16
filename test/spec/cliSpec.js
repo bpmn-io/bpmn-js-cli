@@ -1,7 +1,6 @@
 'use strict';
 
-var TestHelper = require('../test-helper'),
-    Matchers = require('bpmn-js/test/Matchers');
+var TestHelper = require('../test-helper');
 
 /* global bootstrapModeler, inject */
 
@@ -16,9 +15,6 @@ var modelingModule = require('bpmn-js/lib/features/modeling'),
 
 
 describe('cli', function() {
-
-  beforeEach(Matchers.addDeepEquals);
-
 
   var startDiagramXML = fs.readFileSync('resources/start.bpmn', 'utf8');
   var simpleDiagramXML = fs.readFileSync('resources/simple.bpmn', 'utf8');
@@ -35,7 +31,7 @@ describe('cli', function() {
 
 
     it('should bind to window', inject(function(cli) {
-      expect(window.cli).toBeDefined();
+      expect(window.cli).to.be.defined;
     }));
   });
 
@@ -54,14 +50,14 @@ describe('cli', function() {
       var elements = cli.elements();
 
       // then
-      expect(elements).toDeepEqual([ 'Process_1', 'StartEvent_1', 'StartEvent_1_label' ]);
+      expect(elements).to.eql([ 'Process_1', 'StartEvent_1', 'StartEvent_1_label' ]);
 
 
       // element
       var startEventElement = cli.element('StartEvent_1');
 
       // then
-      expect(startEventElement.id).toBe('StartEvent_1');
+      expect(startEventElement.id).to.equal('StartEvent_1');
 
 
       // move
@@ -69,29 +65,29 @@ describe('cli', function() {
       cli.move('StartEvent_1', '0,100');
 
       // then
-      expect(startEventElement.x).toBe(startEventPos.x);
-      expect(startEventElement.y).toBe(startEventPos.y + 100);
+      expect(startEventElement.x).to.equal(startEventPos.x);
+      expect(startEventElement.y).to.equal(startEventPos.y + 100);
 
 
       // append
       var orGateway = cli.append('StartEvent_1', 'bpmn:InclusiveGateway', { x: 150, y: 0});
 
       // then
-      expect(orGateway).toBeDefined();
+      expect(orGateway).to.be.defined;
 
 
       // set label
       cli.setLabel(orGateway, 'You have to decide');
 
       // then
-      expect(cli.element(orGateway).businessObject.name).toBe('You have to decide');
+      expect(cli.element(orGateway).businessObject.name).to.equal('You have to decide');
 
 
       // append user task
       var userTask = cli.append(orGateway, 'bpmn:UserTask 150,0');
 
       // then
-      expect(userTask).toBeDefined();
+      expect(userTask).to.be.defined;
 
 
       // continue modeling
@@ -146,7 +142,7 @@ describe('cli', function() {
   describe('remove', function() {
 
     // given that
-    // expect(cli.elements()).toDeepEqual([ 'ID_PROCESS_1', 'ID_TASK_1', 'ID_TASK_2', 'ID_CONNECTION_1', 'ID_CONNECTION_2_label' ]);
+    // expect(cli.elements()).to.eql([ 'ID_PROCESS_1', 'ID_TASK_1', 'ID_TASK_2', 'ID_CONNECTION_1', 'ID_CONNECTION_2_label' ]);
     beforeEach(bootstrapModeler(simpleDiagramXML, {
       modules: testModules,
       cli: { bindTo: 'cli' }
@@ -160,7 +156,7 @@ describe('cli', function() {
 
       // then
       var elements = cli.elements();
-      expect(elements).toDeepEqual([ 'ID_PROCESS_1', 'ID_TASK_2' ]);
+      expect(elements).to.eql([ 'ID_PROCESS_1', 'ID_TASK_2' ]);
     }));
 
 
@@ -171,7 +167,7 @@ describe('cli', function() {
 
       // then
       var elements = cli.elements();
-      expect(elements).toDeepEqual([ 'ID_PROCESS_1', 'ID_TASK_1', 'ID_TASK_2' ]);
+      expect(elements).to.eql([ 'ID_PROCESS_1', 'ID_TASK_1', 'ID_TASK_2' ]);
     }));
 
   });

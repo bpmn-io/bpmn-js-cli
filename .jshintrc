@@ -18,6 +18,7 @@
   "maxstatements" : 50,
   "maxcomplexity" : 10,
   "maxlen" : 120,
+  "expr": true,
   "browser" : true,
   "node" : true,
   "debug": true,
