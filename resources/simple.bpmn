@@ -11,10 +11,10 @@
   typeLanguage="http://www.w3.org/2001/XMLSchema"
   xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
    <process id="ID_PROCESS_1" isClosed="false" isExecutable="false" processType="None">
-      <task completionQuantity="1" id="ID_TASK_1" isForCompensation="false" name="Shape 1" startQuantity="1">
+      <task completionQuantity="1" id="ID_TASK_1" isForCompensation="false" name="Task 1" startQuantity="1">
          <outgoing>ID_CONNECTION_1</outgoing>
       </task>
-      <task completionQuantity="1" id="ID_TASK_2" isForCompensation="false" name="Shape 2" startQuantity="1">
+      <task completionQuantity="1" id="ID_TASK_2" isForCompensation="false" name="Task 2" startQuantity="1">
          <incoming>ID_CONNECTION_1</incoming>
       </task>
       <sequenceFlow id="ID_CONNECTION_1" sourceRef="ID_TASK_1" targetRef="ID_TASK_2" />
