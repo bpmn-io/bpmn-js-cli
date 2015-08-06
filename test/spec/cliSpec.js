@@ -172,4 +172,44 @@ describe('cli', function() {
 
   });
 
+
+  describe('attach', function() {
+
+    beforeEach(bootstrapModeler(simpleDiagramXML, {
+      modules: testModules,
+    }));
+
+
+    it('should create', inject(function(cli) {
+
+      // when
+      var newElement = cli.create('bpmn:BoundaryEvent', '400,150', 'ID_TASK_2', true);
+      var connectedTask = cli.append(newElement, 'bpmn:ExclusiveGateway', '50,50');
+
+      // then
+      var elements = cli.elements();
+
+      expect(elements).to.contain(newElement);
+      expect(elements).to.contain(connectedTask);
+    }));
+
+
+    it('should move', inject(function(cli) {
+
+      // given
+      var newElement = cli.create('bpmn:BoundaryEvent', '400,150', 'ID_TASK_2', true);
+      var connectedTask = cli.append(newElement, 'bpmn:ExclusiveGateway', '50,50');
+
+      // when
+      cli.move(newElement, '-200,0', 'ID_TASK_1', true);
+
+      // then
+      var taskElement = cli.element('ID_TASK_1');
+      var boundaryElement = cli.element(newElement);
+
+      expect(boundaryElement.host).to.eql(taskElement);
+    }));
+
+  });
+
 });
