@@ -1,6 +1,6 @@
 'use strict';
 
-var TestHelper = require('../test-helper');
+require('../test-helper');
 
 /* global bootstrapModeler, inject */
 
@@ -70,7 +70,7 @@ describe('cli', function() {
 
 
       // append
-      var orGateway = cli.append('StartEvent_1', 'bpmn:InclusiveGateway', { x: 150, y: 0});
+      var orGateway = cli.append('StartEvent_1', 'bpmn:InclusiveGateway', { x: 150, y: 0 });
 
       // then
       expect(orGateway).to.be.defined;
@@ -105,7 +105,7 @@ describe('cli', function() {
       var joiningGateway = cli.append(manualTask, 'bpmn:ExclusiveGateway', '150,70');
 
       // connect event -> gateway
-      var catchEventJoiningGatewayConnection = cli.connect(intermediateCatchEvent, joiningGateway, 'bpmn:SequenceFlow');
+      cli.connect(intermediateCatchEvent, joiningGateway, 'bpmn:SequenceFlow');
 
 
       // create text-annotation next to orGateway
@@ -121,7 +121,7 @@ describe('cli', function() {
 
 
       // create association
-      var association = cli.connect(orGateway, textAnnotation, 'bpmn:Association');
+      cli.connect(orGateway, textAnnotation, 'bpmn:Association');
 
 
       // move some nodes
@@ -198,7 +198,7 @@ describe('cli', function() {
 
       // given
       var newElement = cli.create('bpmn:BoundaryEvent', '400,150', 'ID_TASK_2', true);
-      var connectedTask = cli.append(newElement, 'bpmn:ExclusiveGateway', '50,50');
+      cli.append(newElement, 'bpmn:ExclusiveGateway', '50,50');
 
       // when
       cli.move(newElement, '-200,0', 'ID_TASK_1', true);
