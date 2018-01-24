@@ -7,7 +7,7 @@ An extensible command line interface for [bpmn-js](https://github.com/bpmn-io/bp
 
 ## Demo
 
-<img src="./resources/screencast.gif" style="max-width: 800px; box-shadow: 1px 1px 10px 5px rgba(143,143,143,1);" />
+<img src="./resources/screencast.gif" style="max-width: 100%" />
 
 The demo uses the following transcript:
 
