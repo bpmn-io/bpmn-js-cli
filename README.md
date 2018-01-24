@@ -13,18 +13,47 @@ The demo uses the following transcript:
 
 ```javascript
 cli.elements();
-var gateway = cli.append('StartEvent_1', 'bpmn:ExclusiveGateway', '150,0');
-var serviceTask = cli.append(gateway, 'bpmn:ServiceTask', '150,0');
-var callActivity = cli.append(gateway, 'bpmn:CallActivity', '150,90');
+var gateway = cli.append(
+  'StartEvent_1',
+  'bpmn:ExclusiveGateway',
+  '150,0'
+);
+var serviceTask = cli.append(
+  gateway,
+  'bpmn:ServiceTask',
+  '150,0'
+);
+var callActivity = cli.append(
+  gateway,
+  'bpmn:CallActivity',
+  '150,90'
+);
 cli.undo();
-callActivity = cli.append(gateway, 'bpmn:CallActivity', '150,120');
-var endEvent = cli.append(serviceTask, 'bpmn:EndEvent', '150, 0');
-cli.connect(callActivity, endEvent, 'bpmn:SequenceFlow');
+callActivity = cli.append(
+  gateway,
+  'bpmn:CallActivity',
+  '150,120'
+);
+var endEvent = cli.append(
+  serviceTask,
+  'bpmn:EndEvent',
+  '150, 0'
+);
+cli.connect(
+  callActivity,
+  endEvent,
+  'bpmn:SequenceFlow'
+);
 cli.setLabel(callActivity, 'CallActivity');
 var gatewayShape = cli.element(gateway);
-var textAnnotation = cli.create('bpmn:TextAnnotation', {
-  x: gatewayShape.x - 50, y: gatewayShape.y + 150
-}, gatewayShape.parent);
+var textAnnotation = cli.create(
+  'bpmn:TextAnnotation',
+  {
+    x: gatewayShape.x - 50,
+    y: gatewayShape.y + 150
+  },
+  gatewayShape.parent
+);
 cli.setLabel(textAnnotation, 'i-am-text')
 cli.setLabel(gateway, 'ExclusiveGateway');
 cli.move(callActivity, {x: 20, y: 30});
@@ -43,20 +72,25 @@ cli.save('bpmn');
 * Model BPMN 2.0 diagrams in the browser, without a mouse
 * Full undo and redo functionality
 * Extensible through your own commands
-* Numerous built-in commands:
+* [Numerous built-in commands](#built-in-commands)
 
-   * `append source type [deltaPos]`
-   * `connect source target type`
-   * `create type position parent`
-   * `element id`
-   * `elements`
-   * `move shape delta [newParentId]`
-   * `undo`
-   * `redo`
-   * `save svg|bpmn`
-   * `setLabel element label`
-   * `removeShape  shape|elementId`
-   * `removeConnection  connection|connectionId`
+
+## Built in Commands
+
+Out of the box, the cli supports the following commands:
+
+ * `append source type [deltaPos]`
+ * `connect source target type`
+ * `create type position parent`
+ * `element id`
+ * `elements`
+ * `move shape delta [newParentId]`
+ * `undo`
+ * `redo`
+ * `save svg|bpmn`
+ * `setLabel element label`
+ * `removeShape  shape|elementId`
+ * `removeConnection  connection|connectionId`
 
 
 ## Quickstart
@@ -90,8 +124,12 @@ var BpmnModeler = require('bpmn-js/lib/Modeler'),
 
 var modeler = new BpmnModeler({
   container: document.body,
-  additionalModules: [ CliModule ],
-  cli: { bindTo: 'cli' }
+  additionalModules: [
+    CliModule
+  ],
+  cli: {
+    bindTo: 'cli'
+  }
 });
 
 modeler.importXML('some-bpmn-xml');
