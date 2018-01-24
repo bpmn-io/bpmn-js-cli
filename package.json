@@ -42,6 +42,9 @@
   "dependencies": {
     "lodash": "^3.0.0"
   },
+  "peerDependencies": {
+    "bpmn-js": ">=0.26"
+  },
   "browser": {
     "fs": false
   }
