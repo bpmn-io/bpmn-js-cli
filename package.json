@@ -19,7 +19,7 @@
   "author": "Nico Rehwaldt<git_nikku@nixis.de>",
   "license": "MIT",
   "devDependencies": {
-    "bpmn-js": "^0.17.0",
+    "bpmn-js": "^0.26.4",
     "brfs": "^1.2.0",
     "browserify": "^15.2.0",
     "chai": "^4.1.2",

@@ -26,13 +26,16 @@ describe('cli', function() {
 
     beforeEach(bootstrapModeler(startDiagramXML, {
       modules: testModules,
-      cli: { bindTo: 'cli' }
+      cli: {
+        bindTo: 'cli'
+      }
     }));
 
 
     it('should bind to window', inject(function(cli) {
-      expect(window.cli).to.be.defined;
+      expect(window.cli).to.equal(cli);
     }));
+
   });
 
 
@@ -40,7 +43,9 @@ describe('cli', function() {
 
     beforeEach(bootstrapModeler(startDiagramXML, {
       modules: testModules,
-      cli: { bindTo: 'cli' }
+      cli: {
+        bindTo: 'cli'
+      }
     }));
 
 
@@ -50,7 +55,11 @@ describe('cli', function() {
       var elements = cli.elements();
 
       // then
-      expect(elements).to.eql([ 'Process_1', 'StartEvent_1', 'StartEvent_1_label' ]);
+      expect(elements).to.eql([
+        'Process_1',
+        'StartEvent_1',
+        'StartEvent_1_label'
+      ]);
 
 
       // element
@@ -70,10 +79,14 @@ describe('cli', function() {
 
 
       // append
-      var orGateway = cli.append('StartEvent_1', 'bpmn:InclusiveGateway', { x: 150, y: 0 });
+      var orGateway = cli.append(
+        'StartEvent_1',
+        'bpmn:InclusiveGateway',
+        { x: 150, y: 0 }
+      );
 
       // then
-      expect(orGateway).to.be.defined;
+      expect(orGateway).to.exist;
 
 
       // set label
@@ -87,7 +100,7 @@ describe('cli', function() {
       var userTask = cli.append(orGateway, 'bpmn:UserTask 150,0');
 
       // then
-      expect(userTask).to.be.defined;
+      expect(userTask).to.exist;
 
 
       // continue modeling
@@ -96,26 +109,46 @@ describe('cli', function() {
       var gateway = cli.append(userTask, 'bpmn:ExclusiveGateway');
 
       // append manual task
-      var manualTask = cli.append(gateway, 'bpmn:ManualTask', { x: 150, y: -70 });
+      var manualTask = cli.append(
+        gateway,
+        'bpmn:ManualTask',
+        { x: 150, y: -70 }
+      );
 
       // append intermediate catch event
-      var intermediateCatchEvent = cli.append(gateway, 'bpmn:IntermediateCatchEvent', { x: 150, y: 70 });
+      var intermediateCatchEvent = cli.append(
+        gateway,
+        'bpmn:IntermediateCatchEvent',
+        { x: 150, y: 70 }
+      );
 
       // append joining gateway
-      var joiningGateway = cli.append(manualTask, 'bpmn:ExclusiveGateway', '150,70');
+      var joiningGateway = cli.append(
+        manualTask,
+        'bpmn:ExclusiveGateway',
+        '150,70'
+      );
 
       // connect event -> gateway
-      cli.connect(intermediateCatchEvent, joiningGateway, 'bpmn:SequenceFlow');
+      cli.connect(
+        intermediateCatchEvent,
+        joiningGateway,
+        'bpmn:SequenceFlow'
+      );
 
 
       // create text-annotation next to orGateway
       var orGatewayShape = cli.element(orGateway);
 
 
-      var textAnnotation = cli.create('bpmn:TextAnnotation', {
-        x: orGatewayShape.x + 100,
-        y: orGatewayShape.y - 100
-      }, orGatewayShape.parent);
+      var textAnnotation = cli.create(
+        'bpmn:TextAnnotation',
+        {
+          x: orGatewayShape.x + 100,
+          y: orGatewayShape.y - 100
+        },
+        orGatewayShape.parent
+      );
 
       cli.setLabel(textAnnotation, 'What do you choose, yes or no?');
 
@@ -125,7 +158,11 @@ describe('cli', function() {
 
 
       // move some nodes
-      cli.move([ joiningGateway, orGateway, intermediateCatchEvent ], '0,30');
+      cli.move([
+        joiningGateway,
+        orGateway,
+        intermediateCatchEvent
+      ], '0,30');
 
       // var
       // export as svg
@@ -139,13 +176,37 @@ describe('cli', function() {
   });
 
 
+  describe('set label', function() {
+
+    // given that
+    beforeEach(bootstrapModeler(simpleDiagramXML, {
+      modules: testModules
+    }));
+
+
+    it.only('should set TextAnnotation label', inject(function(cli) {
+
+      // given
+      var textAnnotation = cli.create(
+        'bpmn:TextAnnotation',
+        {
+          x: 100,
+          y: 100
+        },
+        'ID_PROCESS_1'
+      );
+
+      cli.setLabel(textAnnotation, 'What do you choose, yes or no?');
+    }));
+
+  });
+
+
   describe('remove', function() {
 
     // given that
-    // expect(cli.elements()).to.eql([ 'ID_PROCESS_1', 'ID_TASK_1', 'ID_TASK_2', 'ID_CONNECTION_1', 'ID_CONNECTION_2_label' ]);
     beforeEach(bootstrapModeler(simpleDiagramXML, {
-      modules: testModules,
-      cli: { bindTo: 'cli' }
+      modules: testModules
     }));
 
 
@@ -167,7 +228,11 @@ describe('cli', function() {
 
       // then
       var elements = cli.elements();
-      expect(elements).to.eql([ 'ID_PROCESS_1', 'ID_TASK_1', 'ID_TASK_2' ]);
+      expect(elements).to.eql([
+        'ID_PROCESS_1',
+        'ID_TASK_1',
+        'ID_TASK_2'
+      ]);
     }));
 
   });
@@ -183,8 +248,18 @@ describe('cli', function() {
     it('should create', inject(function(cli) {
 
       // when
-      var newElement = cli.create('bpmn:BoundaryEvent', '400,150', 'ID_TASK_2', true);
-      var connectedTask = cli.append(newElement, 'bpmn:ExclusiveGateway', '50,50');
+      var newElement = cli.create(
+        'bpmn:BoundaryEvent',
+        '400,150',
+        'ID_TASK_2',
+        true
+      );
+
+      var connectedTask = cli.append(
+        newElement,
+        'bpmn:ExclusiveGateway',
+        '50,50'
+      );
 
       // then
       var elements = cli.elements();
@@ -197,7 +272,13 @@ describe('cli', function() {
     it('should move', inject(function(cli) {
 
       // given
-      var newElement = cli.create('bpmn:BoundaryEvent', '400,150', 'ID_TASK_2', true);
+      var newElement = cli.create(
+        'bpmn:BoundaryEvent',
+        '400,150',
+        'ID_TASK_2',
+        true
+      );
+
       cli.append(newElement, 'bpmn:ExclusiveGateway', '50,50');
 
       // when
