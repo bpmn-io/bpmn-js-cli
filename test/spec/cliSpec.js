@@ -150,8 +150,7 @@ describe('cli', function() {
         orGatewayShape.parent
       );
 
-      // TODO(nikku): failing due to bpmn-io/bpmn-js#753
-      // cli.setLabel(textAnnotation, 'What do you choose, yes or no?');
+      cli.setLabel(textAnnotation, 'What do you choose, yes or no?');
 
 
       // create association
@@ -185,8 +184,7 @@ describe('cli', function() {
     }));
 
 
-    // TODO(nikku): failing due to bpmn-io/bpmn-js#753
-    it.skip('should set TextAnnotation label', inject(function(cli) {
+    it('should set TextAnnotation label', inject(function(cli) {
 
       // given
       var textAnnotation = cli.create(
@@ -198,7 +196,15 @@ describe('cli', function() {
         'ID_PROCESS_1'
       );
 
-      cli.setLabel(textAnnotation, 'What do you choose, yes or no?');
+      var text = 'What do you choose, yes or no?';
+
+      // when
+      cli.setLabel(textAnnotation, text);
+
+      // then
+      var shape = cli.element(textAnnotation);
+
+      expect(shape.businessObject.text).to.eql(text);
     }));
 
   });
