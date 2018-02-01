@@ -173,6 +173,7 @@ describe('cli', function() {
       cli.save('bpmn');
 
     }));
+
   });
 
 
@@ -210,6 +211,30 @@ describe('cli', function() {
   });
 
 
+  describe('help', function() {
+
+    // given that
+    beforeEach(bootstrapModeler(simpleDiagramXML, {
+      modules: testModules
+    }));
+
+
+    it('should show available commands', inject(function(cli) {
+
+      // when
+      var helpText = cli.help();
+
+      // then
+      expect(helpText).to.match(/available commands:/);
+
+      expect(helpText).to.contain('undo');
+      expect(helpText).to.contain('removeShape');
+      expect(helpText).to.contain('append');
+    }));
+
+  });
+
+
   describe('remove', function() {
 
     // given that
@@ -225,7 +250,11 @@ describe('cli', function() {
 
       // then
       var elements = cli.elements();
-      expect(elements).to.eql([ 'ID_PROCESS_1', 'ID_TASK_2' ]);
+
+      expect(elements).to.eql([
+        'ID_PROCESS_1',
+        'ID_TASK_2'
+      ]);
     }));
 
 
