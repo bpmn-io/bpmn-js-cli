@@ -43,7 +43,7 @@
     "lodash": "^3.0.0"
   },
   "peerDependencies": {
-    "bpmn-js": ">=0.26.5"
+    "bpmn-js": ">=0.26.5 || ^1.x || ^2.x"
   },
   "browser": {
     "fs": false
