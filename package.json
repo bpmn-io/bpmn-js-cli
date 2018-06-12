@@ -44,8 +44,5 @@
   },
   "peerDependencies": {
     "bpmn-js": ">=0.26.5 || ^1.x || ^2.x"
-  },
-  "browser": {
-    "fs": false
   }
 }
