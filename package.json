@@ -43,7 +43,7 @@
     "watchify": "^3.11.0"
   },
   "dependencies": {
-    "lodash": "^3.0.0"
+    "min-dash": "^3.1.0"
   },
   "peerDependencies": {
     "bpmn-js": ">=0.26.5 || ^1.x || ^2.x"
