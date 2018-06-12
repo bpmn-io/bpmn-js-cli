@@ -1,16 +1,14 @@
 'use strict';
 
-require('../test-helper');
+var bootstrapModeler = require('../test-helper').bootstrapModeler,
+    inject = require('../test-helper').inject;
 
-/* global bootstrapModeler, inject */
-
-
-var pick = require('lodash/object/pick');
+var pick = require('min-dash').pick;
 
 var fs = require('fs');
 
-var modelingModule = require('bpmn-js/lib/features/modeling'),
-    coreModule = require('bpmn-js/lib/core'),
+var modelingModule = require('bpmn-js/lib/features/modeling').default,
+    coreModule = require('bpmn-js/lib/core').default,
     cliModule = require('../../');
 
 
@@ -19,7 +17,11 @@ describe('cli', function() {
   var startDiagramXML = fs.readFileSync('resources/start.bpmn', 'utf8');
   var simpleDiagramXML = fs.readFileSync('resources/simple.bpmn', 'utf8');
 
-  var testModules = [ coreModule, cliModule, modelingModule ];
+  var testModules = [
+    coreModule,
+    cliModule,
+    modelingModule
+  ];
 
 
   describe('bootstrap', function() {
@@ -57,8 +59,7 @@ describe('cli', function() {
       // then
       expect(elements).to.eql([
         'Process_1',
-        'StartEvent_1',
-        'StartEvent_1_label'
+        'StartEvent_1'
       ]);
 
 

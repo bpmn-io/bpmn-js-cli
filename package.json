@@ -19,6 +19,9 @@
   "author": "Nico Rehwaldt<git_nikku@nixis.de>",
   "license": "MIT",
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babelify": "^8.0.0",
     "bpmn-js": "^2.1.0",
     "brfs": "^1.6.1",
     "browserify": "^16.2.2",
