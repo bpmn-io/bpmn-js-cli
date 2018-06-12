@@ -1,6 +1,6 @@
 {
   "name": "bpmn-js-cli",
-  "version": "0.17.0",
+  "version": "0.18.0",
   "description": "A command-line interface for bpmn-js",
   "scripts": {
     "all": "run-s lint test",
