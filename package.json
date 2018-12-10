@@ -22,7 +22,7 @@
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "babelify": "^8.0.0",
-    "bpmn-js": "^2.1.0",
+    "bpmn-js": "^3.0.4",
     "brfs": "^1.6.1",
     "browserify": "^16.2.2",
     "chai": "^4.1.2",
@@ -46,6 +46,6 @@
     "min-dash": "^3.1.0"
   },
   "peerDependencies": {
-    "bpmn-js": ">=0.26.5 || ^1.x || ^2.x"
+    "bpmn-js": ">=0.26.5 || ^1.x || ^2.x || ^3.x"
   }
 }
