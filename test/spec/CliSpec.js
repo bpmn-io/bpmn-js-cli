@@ -1,21 +1,21 @@
-'use strict';
+import {
+  bootstrapModeler,
+  inject
+} from '../TestHelper';
 
-var bootstrapModeler = require('../test-helper').bootstrapModeler,
-    inject = require('../test-helper').inject;
+import {
+  pick
+} from 'min-dash';
 
-var pick = require('min-dash').pick;
-
-var fs = require('fs');
-
-var modelingModule = require('bpmn-js/lib/features/modeling').default,
-    coreModule = require('bpmn-js/lib/core').default,
-    cliModule = require('../../');
+import modelingModule from 'bpmn-js/lib/features/modeling';
+import coreModule from 'bpmn-js/lib/core';
+import cliModule from '../../';
 
 
 describe('cli', function() {
 
-  var startDiagramXML = fs.readFileSync('resources/start.bpmn', 'utf8');
-  var simpleDiagramXML = fs.readFileSync('resources/simple.bpmn', 'utf8');
+  var startDiagramXML = require('resources/start.bpmn');
+  var simpleDiagramXML = require('resources/simple.bpmn');
 
   var testModules = [
     coreModule,
