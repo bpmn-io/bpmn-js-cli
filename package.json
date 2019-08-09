@@ -40,6 +40,6 @@
     "min-dash": "^3.1.0"
   },
   "peerDependencies": {
-    "bpmn-js": "^1.x || ^2.x || ^3.x"
+    "bpmn-js": "^1.x || ^2.x || ^3.x || ^4.x || ^5.x"
   }
 }
