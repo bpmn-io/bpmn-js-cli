@@ -6,6 +6,10 @@ All notable changes to [bpmn-js-cli](https://github.com/bpmn-io/bpmn-js-cli) are
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.2.0
+
+* `CHORE`: support `bpmn-js@6`
+
 ## 1.1.0
 
 * `CHORE`: support `bpmn-js@4` and `bpmn-js@5`
