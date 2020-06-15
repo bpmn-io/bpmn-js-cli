@@ -1,5 +1,9 @@
 var path = require('path');
 
+// configures browsers to run test against
+// any of [ 'ChromeHeadless', 'Chrome', 'Firefox' ]
+var browsers = (process.env.TEST_BROWSERS || 'ChromeHeadless').split(',');
+
 module.exports = function(karma) {
   karma.set({
 
@@ -18,7 +22,7 @@ module.exports = function(karma) {
 
     reporters: [ 'dots' ],
 
-    browsers: [ 'PhantomJS' ],
+    browsers,
 
     browserNoActivityTimeout: 30000,
 
