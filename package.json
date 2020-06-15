@@ -19,7 +19,7 @@
   "author": "Nico Rehwaldt<git_nikku@nixis.de>",
   "license": "MIT",
   "devDependencies": {
-    "bpmn-js": "^6.1.1",
+    "bpmn-js": "^7.2.0",
     "chai": "^4.1.2",
     "eslint": "^4.19.1",
     "eslint-plugin-bpmn-io": "^0.6.0",
@@ -39,6 +39,6 @@
     "min-dash": "^3.1.0"
   },
   "peerDependencies": {
-    "bpmn-js": "^1.x || ^2.x || ^3.x || ^4.x || ^5.x || ^6.x"
+    "bpmn-js": "^1.x || ^2.x || ^3.x || ^4.x || ^5.x || ^6.x || ^7.x"
   }
 }
