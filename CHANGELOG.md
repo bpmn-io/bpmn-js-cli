@@ -6,6 +6,11 @@ All notable changes to [bpmn-js-cli](https://github.com/bpmn-io/bpmn-js-cli) are
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.3.0
+
+* `CHORE`: support `bpmn-js@7`
+* `CHORE`: Run test in `ChromeHeadless` by default replacing `PhantomJS`
+
 ## 1.2.0
 
 * `CHORE`: support `bpmn-js@6`
