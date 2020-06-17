@@ -79,7 +79,13 @@ var modeler = new BpmnModeler({
   }
 });
 
-modeler.importXML('some-bpmn-xml');
+modeler.importXML('some-bpmn-xml')
+  .then(({ warnings }) => {
+    // ...
+  })
+  .catch(err => {
+    console.error(err);
+  });
 ```
 
 Access the cli as `cli` in your developer console (open via `F12` in most browsers).
