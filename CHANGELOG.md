@@ -6,10 +6,19 @@ All notable changes to [bpmn-js-cli](https://github.com/bpmn-io/bpmn-js-cli) are
 
 ___Note:__ Yet to be released changes appear here._
 
-## 1.3.0
+## 2.0.0
 
-* `CHORE`: support `bpmn-js@7`
-* `CHORE`: Run test in `ChromeHeadless` by default replacing `PhantomJS`
+### Breaking Changes
+
+* The toolkit now requires the ES6 `Promise` to be present. To support IE11 you must polyfill it.
+
+## 1.4.1
+
+* `CHORE`: fix CHANGELOG
+
+## 1.4.0
+
+_Republish of `v1.2.0`._
 
 ## 1.2.0
 
