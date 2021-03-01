@@ -2,7 +2,7 @@
 
 # bpmn-js-cli
 
-[![Build Status](https://travis-ci.com/bpmn-io/bpmn-js-cli.svg?branch=master)](https://travis-ci.com/bpmn-io/bpmn-js-cli)
+[![CI](https://github.com/bpmn-io/bpmn-js-cli/workflows/CI/badge.svg)](https://github.com/bpmn-io/bpmn-js-cli/actions?query=workflow%3ACI)
 
 An extensible command line interface for [bpmn-js](https://github.com/bpmn-io/bpmn-js).
 
