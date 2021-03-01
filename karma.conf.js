@@ -1,11 +1,13 @@
 var path = require('path');
 
+var singleStart = process.env.SINGLE_START;
+
 // configures browsers to run test against
 // any of [ 'ChromeHeadless', 'Chrome', 'Firefox' ]
 var browsers = (process.env.TEST_BROWSERS || 'ChromeHeadless').split(',');
 
 module.exports = function(karma) {
-  karma.set({
+  var config = {
 
     frameworks: [
       'mocha',
@@ -17,7 +19,7 @@ module.exports = function(karma) {
     ],
 
     preprocessors: {
-      'test/suite.js': [ 'webpack' ]
+      'test/suite.js': [ 'webpack', 'env' ]
     },
 
     reporters: [ 'dots' ],
@@ -46,6 +48,12 @@ module.exports = function(karma) {
         ]
       }
     }
-  });
+  };
 
+  if (singleStart) {
+    config.browsers = [].concat(config.browsers, 'Debug');
+    config.envPreprocessor = [].concat(config.envPreprocessor || [], 'SINGLE_START');
+  }
+
+  karma.set(config);
 };

@@ -11,6 +11,8 @@ import modelingModule from 'bpmn-js/lib/features/modeling';
 import coreModule from 'bpmn-js/lib/core';
 import cliModule from '../../';
 
+var singleStart = !!(window.__env__ && window.__env__.SINGLE_START);
+
 
 describe('cli', function() {
 
@@ -34,7 +36,7 @@ describe('cli', function() {
     }));
 
 
-    it('should bind to window', inject(function(cli) {
+    (singleStart ? it.only : it)('should bind to window', inject(function(cli) {
       expect(window.cli).to.equal(cli);
     }));
 
