@@ -5,6 +5,7 @@
   "scripts": {
     "all": "run-s lint test",
     "lint": "eslint .",
+    "start": "SINGLE_START=1 npm run dev",
     "dev": "npm test -- --auto-watch --no-single-run",
     "test": "karma start"
   },
@@ -26,6 +27,8 @@
     "karma": "^6.1.1",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^3.1.0",
+    "karma-debug-launcher": "0.0.4",
+    "karma-env-preprocessor": "^0.1.1",
     "karma-firefox-launcher": "^2.1.0",
     "karma-mocha": "^2.0.1",
     "karma-webpack": "^5.0.0",
