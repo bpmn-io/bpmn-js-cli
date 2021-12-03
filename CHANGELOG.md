@@ -6,6 +6,12 @@ All notable changes to [bpmn-js-cli](https://github.com/bpmn-io/bpmn-js-cli) are
 
 ___Note:__ Yet to be released changes appear here._
 
+## 2.1.0
+
+* `FEAT`: add `color` command
+* `FEAT`: add generic `remove` command
+* `FEAT`: add `elements` param
+
 ## 2.0.2
 
 * `CHORE`: clean up published files
