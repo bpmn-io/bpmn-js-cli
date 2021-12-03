@@ -261,6 +261,20 @@ describe('cli', function() {
     }));
 
 
+    it('should remove elements', inject(function(cli) {
+
+      // when
+      cli.remove('ID_TASK_1,ID_TASK_2');
+
+      // then
+      var elements = cli.elements();
+
+      expect(elements).to.eql([
+        'ID_PROCESS_1'
+      ]);
+    }));
+
+
     it('should remove connection', inject(function(cli) {
 
       // when
