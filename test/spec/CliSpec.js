@@ -292,6 +292,58 @@ describe('cli', function() {
   });
 
 
+  describe('color', function() {
+
+    // given that
+    beforeEach(bootstrapModeler(simpleDiagramXML, {
+      modules: testModules
+    }));
+
+
+    it('should color shape', inject(function(cli) {
+
+      // when
+      cli.color('ID_TASK_1', 'fuchsia,fuchsia');
+
+      // then
+      var task = cli.element('ID_TASK_1');
+
+      expect(getDi(task).get('fill')).to.exist;
+      expect(getDi(task).get('stroke')).to.exist;
+    }));
+
+
+    it('should color shapes', inject(function(cli) {
+
+      // when
+      cli.color('ID_TASK_1,ID_TASK_2', 'fuchsia,fuchsia');
+
+      // then
+      expect(
+        getDi(cli.element('ID_TASK_2')).get('fill')
+      ).to.eql(
+        getDi(cli.element('ID_TASK_1')).get('fill')
+      );
+    }));
+
+
+    it('should reset shape color', inject(function(cli) {
+
+      // given
+      cli.color('ID_TASK_1', 'fuchsia,fuchsia');
+
+      // when
+      cli.color('ID_TASK_1', 'unset,unset');
+
+      var task = cli.element('ID_TASK_1');
+
+      expect(getDi(task).get('fill')).not.to.exist;
+      expect(getDi(task).get('stroke')).not.to.exist;
+    }));
+
+  });
+
+
   describe('attach', function() {
 
     beforeEach(bootstrapModeler(simpleDiagramXML, {
@@ -348,3 +400,10 @@ describe('cli', function() {
   });
 
 });
+
+
+// helpers ////////////
+
+function getDi(element) {
+  return element.di || element.businessObject.di;
+}
