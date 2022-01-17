@@ -48,10 +48,10 @@ Get the list of available commands:
 cli.help();
 ```
 
-Get the list of shapes:
+Get the list of elements:
 
 ```
-cli.shapes();
+cli.elements();
 ```
 
 Export SVG or BPMN 2.0 xml
