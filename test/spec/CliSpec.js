@@ -18,6 +18,7 @@ describe('cli', function() {
 
   var startDiagramXML = require('resources/start.bpmn');
   var simpleDiagramXML = require('resources/simple.bpmn');
+  var collapsedDiagramXML = require('resources/collapsed.bpmn');
 
   var testModules = [
     coreModule,
@@ -209,6 +210,42 @@ describe('cli', function() {
       var shape = cli.element(textAnnotation);
 
       expect(shape.businessObject.text).to.eql(text);
+    }));
+
+  });
+
+
+  describe('set root', function() {
+
+    // given that
+    beforeEach(bootstrapModeler(collapsedDiagramXML, {
+      modules: testModules
+    }));
+
+
+    it('should set Root Element', inject(function(cli, canvas) {
+
+      // given
+      var rootElement = cli.element('SubProcess_1_plane');
+
+      // when
+      cli.setRoot(rootElement);
+
+      // then
+      expect(canvas.getRootElement()).to.eql(rootElement);
+    }));
+
+
+    it('should set Root Element using IDs', inject(function(cli, canvas) {
+
+      // given
+      var rootElementId = 'SubProcess_1_plane';
+
+      // when
+      cli.setRoot(rootElementId);
+
+      // then
+      expect(canvas.getRootElement().id).to.eql(rootElementId);
     }));
 
   });

@@ -36,6 +36,7 @@ Out of the box, the cli supports the following commands:
  * `redo`
  * `save svg|bpmn`
  * `setLabel element label`
+ * `setRoot element|elementId`
  * `removeShape  shape|elementId`
  * `removeConnection  connection|connectionId`
 
