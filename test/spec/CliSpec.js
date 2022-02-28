@@ -1,6 +1,7 @@
 import {
   bootstrapModeler,
-  inject
+  inject,
+  withBpmnJs
 } from '../TestHelper';
 
 import {
@@ -223,7 +224,7 @@ describe('cli', function() {
     }));
 
 
-    it('should set Root Element', inject(function(cli, canvas) {
+    withBpmnJs('>=9')('should set Root Element', inject(function(cli, canvas) {
 
       // given
       var rootElement = cli.element('SubProcess_1_plane');
@@ -236,7 +237,7 @@ describe('cli', function() {
     }));
 
 
-    it('should set Root Element using IDs', inject(function(cli, canvas) {
+    withBpmnJs('>=9')('should set Root Element using IDs', inject(function(cli, canvas) {
 
       // given
       var rootElementId = 'SubProcess_1_plane';
