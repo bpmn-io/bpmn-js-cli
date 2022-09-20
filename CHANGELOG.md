@@ -6,6 +6,10 @@ All notable changes to [bpmn-js-cli](https://github.com/bpmn-io/bpmn-js-cli) are
 
 ___Note:__ Yet to be released changes appear here._
 
+## 2.2.1
+
+* `DEPS`: support `bpmn-js@10`
+
 ## 2.2.0
 
 * `FEAT`: add `setRoot` command ([#42](https://github.com/bpmn-io/bpmn-js-cli/pull/42))
