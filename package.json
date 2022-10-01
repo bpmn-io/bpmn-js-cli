@@ -41,6 +41,6 @@
     "min-dash": "^3.1.0"
   },
   "peerDependencies": {
-    "bpmn-js": "1 - 10"
+    "bpmn-js": "*"
   }
 }
