@@ -6,6 +6,10 @@ All notable changes to [bpmn-js-cli](https://github.com/bpmn-io/bpmn-js-cli) are
 
 ___Note:__ Yet to be released changes appear here._
 
+# 2.3.0
+
+* `DEPS`: widen `bpmn-js` peerDependency range ([e71a09f](https://github.com/bpmn-io/bpmn-js-cli/commit/e71a09f))
+
 ## 2.2.1
 
 * `DEPS`: support `bpmn-js@10`
