@@ -43,5 +43,9 @@
   },
   "peerDependencies": {
     "bpmn-js": "*"
-  }
+  },
+  "files": [
+    "lib",
+    "index.js"
+  ]
 }
