@@ -21,21 +21,21 @@
   "license": "MIT",
   "devDependencies": {
     "bpmn-js": "^16.3.2",
-    "chai": "^4.3.0",
+    "chai": "^4.4.0",
     "eslint": "^7.21.0",
     "eslint-plugin-bpmn-io": "^0.12.0",
-    "karma": "^6.1.1",
+    "karma": "^6.4.2",
     "karma-chai": "^0.1.0",
-    "karma-chrome-launcher": "^3.1.0",
-    "karma-debug-launcher": "0.0.4",
+    "karma-chrome-launcher": "^3.2.0",
+    "karma-debug-launcher": "^0.0.5",
     "karma-env-preprocessor": "^0.1.1",
-    "karma-firefox-launcher": "^2.1.0",
+    "karma-firefox-launcher": "^2.1.2",
     "karma-mocha": "^2.0.1",
     "karma-webpack": "^5.0.0",
-    "mocha": "^8.3.0",
+    "mocha": "^10.2.0",
     "mocha-test-container-support": "^0.2.0",
     "npm-run-all": "^4.1.5",
-    "webpack": "^5.24.2"
+    "webpack": "^5.89.0"
   },
   "dependencies": {
     "min-dash": "^3.1.0"
