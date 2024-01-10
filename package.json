@@ -23,7 +23,7 @@
     "bpmn-js": "^16.3.2",
     "chai": "^4.3.0",
     "eslint": "^7.21.0",
-    "eslint-plugin-bpmn-io": "^0.12.0",
+    "eslint-plugin-bpmn-io": "^0.16.0",
     "karma": "^6.1.1",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^3.1.0",
