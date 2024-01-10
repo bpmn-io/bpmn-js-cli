@@ -6,6 +6,11 @@ All notable changes to [bpmn-js-cli](https://github.com/bpmn-io/bpmn-js-cli) are
 
 ___Note:__ Yet to be released changes appear here._
 
+# 2.4.0
+
+* `DEPS`: dependency updates
+* `CHORE`: consistently use ES modules internally
+
 # 2.3.0
 
 * `DEPS`: widen `bpmn-js` peerDependency range ([e71a09f](https://github.com/bpmn-io/bpmn-js-cli/commit/e71a09f))
