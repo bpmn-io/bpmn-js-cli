@@ -21,7 +21,7 @@
   "license": "MIT",
   "devDependencies": {
     "bpmn-js": "^16.3.2",
-    "chai": "^4.4.0",
+    "chai": "^4.4.1",
     "eslint": "^8.56.0",
     "eslint-plugin-bpmn-io": "^1.0.0",
     "karma": "^6.4.2",
@@ -31,12 +31,13 @@
     "karma-env-preprocessor": "^0.1.1",
     "karma-firefox-launcher": "^2.1.2",
     "karma-mocha": "^2.0.1",
-    "karma-webpack": "^5.0.0",
+    "karma-webpack": "^5.0.1",
     "mocha": "^10.2.0",
     "mocha-test-container-support": "^0.2.0",
     "npm-run-all2": "^6.0.0",
-    "puppeteer": "^21.7.0",
-    "webpack": "^5.89.0"
+    "puppeteer": "^21.10.0",
+    "semver": "^7.5.4",
+    "webpack": "^5.90.1"
   },
   "dependencies": {
     "min-dash": "^4.1.1"
