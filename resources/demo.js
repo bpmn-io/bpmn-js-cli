@@ -35,7 +35,7 @@ callActivity = cli.append(
 var endEvent = cli.append(
   serviceTask,
   'bpmn:EndEvent',
-  '150, 0'
+  '150,0'
 );
 
 cli.connect(
