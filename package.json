@@ -35,7 +35,7 @@
     "mocha": "^10.2.0",
     "mocha-test-container-support": "^0.2.0",
     "npm-run-all2": "^7.0.0",
-    "puppeteer": "^23.0.0",
+    "puppeteer": "^24.0.0",
     "semver": "^7.5.4",
     "webpack": "^5.90.1"
   },
