@@ -23,6 +23,8 @@ jobs:
         cache: 'npm'
     - name: Install dependencies
       run: npm ci
+    - name: Setup project
+      uses: bpmn-io/actions/setup@latest
     - name: Install dependencies for integration test
       if: ${{ matrix.integration-deps != '' }}
       run: npm install ${{ matrix.integration-deps }}
