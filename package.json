@@ -40,7 +40,7 @@
     "webpack": "^5.90.1"
   },
   "dependencies": {
-    "min-dash": "^4.1.1"
+    "min-dash": "^5.0.0"
   },
   "peerDependencies": {
     "bpmn-js": "*"
